@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimberly Kesler - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="kesler logo v2.png" height="100px" alt="Logo" class="logo">
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="" class="active">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+    </nav>
+
+    <div class="portfolio">
+        <h1>Portfolio</h1> 
+        <img src="logo black revised.jpg" height="150px" class="center-image" style="border: 2px solid #333;border-radius: 10px;">
+        <a href="#personalBrand"><b>View My Personal Branding</b></a> <br><br>
+        <a href="#myportfolio"><b>View my Portfolio</b></a> <br><br>
+        <a href=""><b>View My Resume'</b></a> <br><br>
+    </div>
+
+    <br>
+
+    <section id="personalBrand">
+        <br>
+        <div class="pbrand">
+            <h1>My Personal Branding</h1>
+            <img src="Leave Behind.jpg"  class="center-image" style="border: 2px solid #333">
+            <img src="Leave Behind Mockup.jpg"  class="center-image" style="border: 2px solid #333">
+        </div>
+    </section>
+
+    <section id="myportfolio">
+        <br>
+        <div class="carousel-container">
+            <h1>My Portfolio</h1>
+        <div class="carousel-track">
+            <div class="slide"><img src="Look Book.jpg" alt="1"></div>
+            <div class="slide"><img src="Look Book2.jpg" alt="2"></div>
+            <div class="slide"><img src="Look Book3.jpg" alt="3"></div>
+            <div class="slide"><img src="Look Book4.jpg" alt="4"></div>
+            <div class="slide"><img src="Look Book5.jpg" alt="5"></div>
+            <div class="slide"><img src="Look Book6.jpg" alt="6"></div>
+            <div class="slide"><img src="Look Book7.jpg" alt="7"></div>
+            <div class="slide"><img src="Look Book8.jpg" alt="8"></div>
+            <div class="slide"><img src="Look Book9.jpg" alt="9"></div>
+            <div class="slide"><img src="Look Book10.jpg" alt="10"></div>
+            <div class="slide"><img src="Look Book11.jpg" alt="11"></div>
+            <div class="slide"><img src="Look Book12.jpg" alt="12"></div>
+            <div class="slide"><img src="Look Book13.jpg" alt="13"></div>
+            <div class="slide"><img src="Look Book14.jpg" alt="14"></div>
+        </div>
+
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="resume">
+        <div class="carousel-container2">
+        <h1>My Resume'</h1> <br>
+        <a href="KimberlyKeslerResume.pdf" download="Kimberly_Kesler_Resume.pdf">Download My Resume</a> <br><br>
+        <div class="carousel-track2">
+            <div class="slide2"><img src="Digital Resume-01.jpg" alt="1"></div>
+            <div class="slide2"><img src="Digital Resume-02.jpg" alt="2"></div>
+            <div class="slide2"><img src="Digital Resume-03.jpg" alt="3"></div>
+            <div class="slide2"><img src="Digital Resume-04.jpg" alt="4"></div>
+        </div>
+
+        <button class="prev" onclick="moveSlide2(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide2(1)">&#10095;</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/bristle_and_bloom_studio/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.behance.net/kimberlblancha" target="_blank"><i class="fa fa-behance"></i></a>
+                <a href="https://www.linkedin.com/in/kimberlykesler1" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/themangatathreadco" target="_blank"><i class="fa fa-facebook"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <p class="copyright">&copy; 2026 Kimberly Kesler. All rights reserved.</p>
+        </div>
+
+        <button onclick="scrollToTop()" id="backToTop" title="Go to top">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </footer>   
+
+    <script src="script.js"></script>
+</body>
+</html>

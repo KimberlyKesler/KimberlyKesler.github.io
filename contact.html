@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kimberly Kesler - Contact Me</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+    <nav class="navbar">
+        <img src="kesler logo v2.png" height="100px" alt="Logo" class="logo">
+        
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Me</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="" class="active">Contact</a>
+        </div>
+    </nav>
+<div class="forms">
+    <form id="contactForm">
+        <label for="userName">Name</label>
+        <input type="text" id="userName" placeholder="Your Name">
+
+        <label for="userSubject">Subject</label>
+        <input type="text" id="userSubject" placeholder="How can I help?">
+
+        <label for="userMessage">Message</label>
+        <textarea id="userMessage" rows="5" placeholder="Write your message here..."></textarea>
+
+        <button type="button" onclick="formatAndSend()">
+            Compose Email
+        </button>
+    </form>
+</div>
+    <footer>
+        <div class="footer-container">
+            <div class="social-icons">
+                <a href="https://www.instagram.com/bristle_and_bloom_studio/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <a href="https://www.behance.net/kimberlblancha" target="_blank"><i class="fa fa-behance"></i></a>
+                <a href="https://www.linkedin.com/in/kimberlykesler1" target="_blank"><i class="fa fa-linkedin"></i></a>
+                <a href="https://www.facebook.com/themangatathreadco" target="_blank"><i class="fa fa-facebook"></i></a>
+            </div>
+
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Me</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="contact.html">Contact</a>
+            </div>
+
+            <p class="copyright">&copy; 2026 Kimberly Kesler. All rights reserved.</p>
+        </div>
+
+        <button onclick="scrollToTop()" id="backToTop" title="Go to top">
+            <i class="fa fa-chevron-up"></i>
+        </button>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        function formatAndSend() {
+        const recipient = "kimberly.kesler@outlook.com";
+        const name = document.getElementById('userName').value;
+        const subject = document.getElementById('userSubject').value;
+        const message = document.getElementById('userMessage').value;
+
+        // %0D%0A is the code for a "Line Break" in an email link
+        const formattedBody = "From: " + name + "%0D%0A" + 
+                                "----------------------------" + "%0D%0A%0D%0A" + 
+                                message;
+
+        const mailtoLink = "mailto:" + recipient + 
+                            "?subject=" + encodeURIComponent(subject) + 
+                            "&body=" + formattedBody;
+
+        window.location.href = mailtoLink;
+        }
+    </script>
+</body>
+</html>
