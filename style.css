@@ -15,6 +15,9 @@ body {
 
 /* --- 2. Navigation (Header) --- */
 .navbar {
+    position: sticky;
+    top: 0;
+    overflow: hidden;
     display: flex;
     align-items: center;
     padding: 20px 5%;
@@ -72,7 +75,7 @@ body {
 }
 
 .content { text-align: center; }
-.content h1 { margin-bottom: 20px; font-size: 2rem; letter-spacing: 1px; }
+.content h2{ margin-bottom: 10px; text-align: left;}
 
 .abtme { text-align: left; }
 .abtme h1 { margin-bottom: 20px; font-size: 2rem; color: #00b0f0; }
@@ -90,55 +93,6 @@ body {
     color: black;
     font-weight: bold;
 }
-
-/* --- 5. Carousels --- */
-.carousel-container, .carousel-container2 {
-    position: relative;
-    width: 90%;
-    max-width: 800px;
-    margin: 40px auto;
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid #333;
-    padding: 20px;
-    overflow: hidden;
-}
-
-.carousel-track, .carousel-track2 {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.slide, .slide2 {
-    min-width: 50%;
-    box-sizing: border-box;
-    padding: 10px;
-}
-
-.slide img, .slide2 img { width: 100%; display: block; }
-
-/* Carousel Specific Buttons */
-.carousel-container button, .carousel-container2 button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(26, 26, 26, 0.8);
-    color: white;
-    border: 1px solid #444;
-    padding: 15px;
-    cursor: pointer;
-    z-index: 10;
-    border-radius: 8px;
-    transition: 0.3s;
-}
-
-.carousel-container button:hover, .carousel-container2 button:hover {
-    background-color: white;
-    color: black;
-}
-
-.next { right: 10px; }
-.prev { left: 10px; }
 
 /* --- 6. Contact Form Section --- */
 .forms {
