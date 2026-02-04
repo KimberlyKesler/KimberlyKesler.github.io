@@ -1,217 +1,370 @@
-/* --- 1. Global Styles & Resets --- */
+/* ===============================
+   VARIABLES & GLOBAL RESET
+================================ */
+:root {
+    --rainbow: linear-gradient(to right, #29aae1 11.11%, #8ac76f 28.77%, #fbed21 47.13%, #f16b4e 70.11%, #ea088b 100%);
+    --bg-black: #000;
+    --card-bg: #1a1a1a;
+    --text-white: #fff;
+    --text-gray: #9e9e9e;
+    --accent-blue: #00b0f0;
+}
+
 * {
-    box-sizing: border-box;
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 body {
-    background-color: black;
-    color: white;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'aktiv-grotesk', sans-serif;
     line-height: 1.6;
-    overflow-x: hidden;
+    background: var(--bg-black);
+    color: var(--text-white);
 }
 
-/* --- 2. Navigation (Header) --- */
+/* ===============================
+   NAVBAR
+================================ */
 .navbar {
     position: sticky;
     top: 0;
-    overflow: hidden;
+    z-index: 1000;
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    padding: 20px 5%;
-    background-color: black;
+    padding: 15px 8%;
+    background: rgba(0,0,0,0.9);
 }
 
+.gradient-border-bottom {
+  border-bottom: 1px solid transparent; /* Define the border width and make it transparent */
+  border-image-source: linear-gradient(to right, #29aae1 11.11%, #8ac76f 28.77%, #fbed21 47.13%, #f16b4e 70.11%, #ea088b 100%); /* Set the gradient */
+  border-image-slice: 1; /* Essential for the gradient to display correctly */
+}
+
+
 .logo {
-    height: 80px;
-    width: auto;
+    height: 60px;
 }
 
 .nav-links {
-    margin-left: auto;
     display: flex;
-    gap: 10px;
+    gap: 15px;
 }
 
 .nav-links a {
+    color: var(--text-gray);
     text-decoration: none;
-    color: rgb(158, 158, 158);
     padding: 10px 20px;
     font-weight: bold;
+    border-radius: 5px;
     transition: 0.3s;
-    border-radius: 12px;
 }
 
-.nav-links a:hover { color: white; }
+.nav-links a:hover {
+    color: white;
+}
 
 .nav-links a.active {
+    background-image: var(--rainbow);
     color: black;
-    background-image: linear-gradient(to right, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);
 }
 
-.nav-links a.active:hover { color: rgb(83, 83, 83); }
+/* Mobile Hamburger */
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-white);
+}
 
-/* --- 3. Images & Branding --- */
-.center-image, .ctr-img {
+@media (max-width: 768px) {
+    .nav-links {
+        position: absolute;
+        top: 70px;
+        right: 0;
+        background: var(--bg-black);
+        flex-direction: column;
+        width: 200px;
+        border-left: 1px solid #333;
+        padding: 20px;
+        display: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+}
+
+/* ===============================
+   SECTIONS
+================================ */
+.section {
+    padding: 40px 20px;
+}
+
+.section-soft {
+    background: #0f0f0f;
+}
+
+.section-card {
+    background: var(--card-bg);
+}
+
+.section-gradient {
+    background:
+        linear-gradient(to right, rgb(41, 170, 225, 0.3) 11.11%, rgb(138, 199, 111, 0.3) 28.77%, rgb(251, 237, 33, 0.3) 47.13%, rgb(241, 107, 78, 0.3) 70.11%, rgb(234, 8, 139, 0.3) 100%);
+    padding: 15px;
+    border-radius: 5px;
+    }
+
+.content {
+    max-width: 900px;
+    margin: auto;
+}
+
+.center-image {
     display: block;
-    margin: 40px auto;
-    width: 85%;
+    margin: 60px auto;
+    max-width: 420px;
+    width: 80%;
     height: auto;
 }
-.center-image { max-width: 600px; }
-.ctr-img { max-width: 300px; }
 
-/* --- 4. Content Containers --- */
-.content, .abtme, .portfolio, .pbrand, .myport {
-    width: 90%;
+/* ===============================
+   ABOUT PAGE
+================================ */
+.abt-container {
     max-width: 800px;
-    margin: 20px auto;
-    background-color: #1a1a1a;
-    border-radius: 12px;
-    border: 1px solid #333;
-    padding: 30px;
+    margin: auto;
 }
 
-.content { text-align: center; }
-.content h2{ margin-bottom: 10px; text-align: left;}
+.abt-container h1 {
+    color: var(--accent-blue);
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
 
-.abtme { text-align: left; }
-.abtme h1 { margin-bottom: 20px; font-size: 2rem; color: #00b0f0; }
+.abt-container p {
+    color: var(--text-gray);
+    margin-bottom: 18px;
+}
 
-.portfolio { text-align: center; display: grid; gap: 20px; }
-.pbrand { max-width: 700px; text-align: center; }
-.myport { text-align: center; }
+.resume-title {
+    margin-top: 40px;
+    color: var(--accent-blue);
+}
 
-/* Gradient Links (Portfolio & Resume) */
-.portfolio a, #resume a {
-    text-decoration: none;
-    background-image: linear-gradient(to left, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);
-    border-radius: 12px;
-    padding: 10px 12px;
-    color: black;
+.btn-rainbow {
+    display: inline-block;
+    margin: 20px 0;
+    padding: 12px 28px;
+    border-radius: 30px;
     font-weight: bold;
+    text-decoration: none;
+    color: black;
+    background-image: var(--rainbow);
 }
 
-/* --- 6. Contact Form Section --- */
-.forms {
-    padding: 2rem;
+.resume-images {
     display: flex;
-    justify-content: center;
-    background-color: black; /* Matches your theme */
+    flex-direction: column;
+    gap: 20px;
+}
+
+.resume-images img {
+    width: 100%;
+    border-radius: 8px;
+    border: 1px solid #333;
+}
+
+/* ===============================
+   PORTFOLIO
+================================ */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.project-card {
+    background: var(--card-bg);
+    border-radius: 15px;
+    overflow: hidden;
+    border: 1px solid #333;
+    text-decoration: none;
+    color: white;
+    transition: 0.4s;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent-blue);
+}
+
+.project-card img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+}
+
+.project-title {
+    padding: 14px;
+    text-align: center;
+    background: rgba(0,0,0,0.7);
+}
+
+/* ===============================
+   CONTACT
+================================ */
+.forms {
+    max-width: 600px;
+    margin: auto;
+    padding: 40px;
+    background: var(--card-bg);
+    border-radius: 10px;
+    border: 1px solid #333;
+}
+
+.contact-title {
+    text-align: center;
+    font-size: 2.2rem;
+}
+
+.contact-subtitle {
+    text-align: center;
+    color: var(--text-gray);
+    margin-bottom: 35px;
 }
 
 #contactForm {
-    background-color: #1e1e1e;
-    padding: 30px;
-    border-radius: 12px;
-    border: 1px solid #333;
-    width: 100%;
-    max-width: 400px;
     display: flex;
     flex-direction: column;
-    gap: 15px; /* Spacing between inputs */
+    gap: 14px;
 }
 
 #contactForm label {
-    display: block;
-    font-weight: 600;
-    font-size: 0.9rem;
-    color: #00b0f0;
-    text-align: left;
+    font-size: 0.85rem;
+    color: var(--text-gray);
 }
 
-#contactForm input[type="text"], 
+#contactForm input,
 #contactForm textarea {
-    background-color: #2c2c2c;
-    border: 1px solid #3d3d3d;
-    border-radius: 6px;
-    color: #ffffff;
-    padding: 12px;
-    width: 100%;
-    transition: 0.3s;
-}
-
-#contactForm input:focus, 
-#contactForm textarea:focus {
-    outline: none;
-    background-image: linear-gradient(to right, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);
-}
-
-/* Specific Style for the Form Button to keep it at the bottom */
-#contactForm button {
-    position: static;     /* Fixes the "not at bottom" issue */
-    transform: none;      /* Removes carousel button positioning */
-    background-image: linear-gradient(to right, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);
-    color: #1a1a1a;
-    border-radius: 6px;
-    padding: 12px 24px;
-    font-weight: bold;
-    text-transform: uppercase;
-    cursor: pointer;
-    align-self: flex-start;
-    margin-top: 10px;
-}
-
-#contactForm button:hover { background-image: linear-gradient(to left, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);}
-
-/* --- 7. Footer --- */
-footer {
-    padding: 60px 20px 40px;
-    background-color: black;
-    border-top: 1px solid #333;
-    text-align: center;
-    margin-top: 60px;
-}
-
-.social-icons a {
-    text-decoration: none;
-    font-size: 24px;
-    margin: 0 15px;
-    display: inline-block;
-    transition: 0.3s;
-}
-
-.social-icons a:hover { transform: translateY(-3px); }
-.fa-instagram { color: #DD2A7B; }
-.fa-behance   { color: #053EFF; }
-.fa-linkedin  { color: #0077B5; }
-.fa-facebook  { color: #1877F2; }
-
-.footer-links { display: flex; justify-content: center; gap: 20px; margin: 25px 0; flex-wrap: wrap; }
-.footer-links a { text-decoration: none; color: #777; font-size: 14px; }
-.footer-links a:hover { color: white; }
-
-.copyright { font-size: 12px; color: #bababa; text-transform: uppercase; letter-spacing: 1px; }
-
-/* --- 8. Back to Top --- */
-#backToTop {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 999;
-    background-color: #333;
+    padding: 14px;
+    border-radius: 5px;
+    border: 1px solid #444;
+    background: #0f0f0f;
     color: white;
+}
+
+#contactForm button {
+    margin-top: 25px;
+    padding: 14px;
+    border-radius: 30px;
+    font-weight: bold;
     border: none;
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    display: none;
-    align-items: center;
+    cursor: pointer;
+    background-image: var(--rainbow);
+    color: black;
+}
+
+/* ===============================
+   FOOTER
+================================ */
+.site-footer {
+    background: #000;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.gradient-border-top {
+  border-top: 1px solid transparent; /* Define the border width and make it transparent */
+  border-image-source: linear-gradient(to left, #29aae1 11.11%, #8ac76f 28.77%, #fbed21 47.13%, #f16b4e 70.11%, #ea088b 100%); /* Set the gradient */
+  border-image-slice: 1; /* Essential for the gradient to display correctly */
+}
+
+.footer-container {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    gap: 30px;
+}
+
+.footer-links,
+.social-icons {
+    display: flex;
     justify-content: center;
-    transition: 0.3s;
+    gap: 15px;
 }
 
-#backToTop:hover {
-    background-image: linear-gradient(to right, #EC018C 0%, #F9AD27 25%, #FCF103 50%, #9ED85A 75%, #00AEEF 100%);
-    transform: scale(1.1);
+.footer-links a,
+.social-icons a {
+    color: white;
+    text-decoration: none;
 }
 
-/* --- 9. Mobile Responsiveness --- */
+.footer-links a:hover,
+.social-icons a:hover {
+    color: white;
+}
+
+#backToTop {
+    margin-top: 20px;
+    background: none;
+    border: 1px solid #444;
+    color: white;
+    padding: 10px 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* ===============================
+   RESPONSIVE
+================================ */
+@media (max-width: 992px) {
+    .section { padding: 60px 15px; }
+    .abt-container h1,
+    .resume-title,
+    .contact-title { font-size: 2rem; }
+    .abt-container p,
+    .contact-subtitle { font-size: 0.95rem; }
+    .center-image { max-width: 350px; }
+    .portfolio-grid { gap: 20px; }
+    .resume-images img { max-width: 100%; }
+}
+
 @media (max-width: 768px) {
-    .navbar { flex-direction: column; gap: 20px; }
-    .nav-links { margin-left: 0; width: 100%; justify-content: center; }
-    .logo { height: 60px; }
-    .content, .abtme, .portfolio { padding: 20px; }
+    .section { padding: 50px 10px; }
+    .abt-container h1,
+    .resume-title,
+    .contact-title { font-size: 1.75rem; }
+    .abt-container p,
+    .contact-subtitle { font-size: 0.9rem; }
+    .center-image { max-width: 300px; }
+    .resume-images { flex-direction: column; gap: 15px; }
+    .project-card img { height: 180px; }
+    .forms { padding: 30px 15px; }
+    #contactForm input,
+    #contactForm textarea { padding: 12px; }
+    #contactForm button { padding: 12px; }
+}
+
+@media (max-width: 480px) {
+    .section { padding: 40px 10px; }
+    .abt-container h1,
+    .resume-title,
+    .contact-title { font-size: 1.5rem; }
+    .abt-container p,
+    .contact-subtitle { font-size: 0.85rem; }
+    .center-image { max-width: 90%; }
+    .project-card img { height: 160px; }
+    .btn-rainbow { padding: 10px 20px; font-size: 0.85rem; }
+    .forms { padding: 20px 10px; }
 }
