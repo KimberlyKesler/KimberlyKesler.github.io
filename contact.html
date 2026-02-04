@@ -3,80 +3,89 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kimberly Kesler - Contact Me</title>
+    <title>Contact - Kimberly Kesler</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://use.typekit.net/wsq7zri.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="logo black revised.jpg" type="image/x-icon">
 </head>
 <body>
-    <nav class="navbar">
-        <img src="kesler logo v2.png" height="100px" alt="Logo" class="logo">
-        
-        <div class="nav-links">
+
+<nav class="navbar gradient-border-bottom">
+    <img src="kesler logo v2.png" class="logo" alt="Logo">
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+</nav>
+
+<section class="section section-soft">
+    <div class="forms">
+        <h1 class="contact-title">Let’s Work Together</h1>
+        <p class="contact-subtitle">
+            Have a project, idea, or collaboration in mind? I’d love to hear from you.
+        </p>
+
+        <form id="contactForm">
+            <label for="userName">Name</label>
+            <input type="text" id="userName" placeholder="Your Name" required>
+
+            <label for="userSubject">Subject</label>
+            <input type="text" id="userSubject" placeholder="How can I help?" required>
+
+            <label for="userMessage">Message</label>
+            <textarea id="userMessage" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <button type="button" onclick="formatAndSend()">Compose Email</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer gradient-border-top">
+    <div class="footer-container">
+        <div class="footer-links">
             <a href="index.html">Home</a>
-            <a href="about.html">About Me</a>
+            <a href="about.html">About</a>
             <a href="portfolio.html">Portfolio</a>
-            <a href="" class="active">Contact</a>
-        </div>
-    </nav>
-<div class="forms">
-    <form id="contactForm">
-        <label for="userName">Name</label>
-        <input type="text" id="userName" placeholder="Your Name">
-
-        <label for="userSubject">Subject</label>
-        <input type="text" id="userSubject" placeholder="How can I help?">
-
-        <label for="userMessage">Message</label>
-        <textarea id="userMessage" rows="5" placeholder="Write your message here..."></textarea>
-
-        <button type="button" onclick="formatAndSend()">
-            Compose Email
-        </button>
-    </form>
-</div>
-    <footer>
-        <div class="footer-container">
-            <div class="social-icons">
-                <a href="https://www.instagram.com/bristle_and_bloom_studio/" target="_blank"><i class="fa fa-instagram"></i></a>
-                <a href="https://www.behance.net/kimberlblancha" target="_blank"><i class="fa fa-behance"></i></a>
-                <a href="https://www.linkedin.com/in/kimberlykesler1" target="_blank"><i class="fa fa-linkedin"></i></a>
-                <a href="https://www.facebook.com/themangatathreadco" target="_blank"><i class="fa fa-facebook"></i></a>
-            </div>
-
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="about.html">About Me</a>
-                <a href="portfolio.html">Portfolio</a>
-                <a href="contact.html">Contact</a>
-            </div>
-
-            <p class="copyright">&copy; 2026 Kimberly Kesler. All rights reserved.</p>
+            <a href="contact.html">Contact</a>
         </div>
 
-        <button onclick="scrollToTop()" id="backToTop" title="Go to top">
-            <i class="fa fa-chevron-up"></i>
-        </button>
-    </footer>
+        <div class="social-icons">
+            <a href="https://www.instagram.com/kimberly.blanchard1/" target="_blank"><i class="fa fa-instagram" style="color: #ea088b;"></i></a>
+            <a href="https://www.behance.net/kimberlblancha" target="_blank"><i class="fa fa-behance" style="color: #f16b4e;"></i></a>
+            <a href="https://www.linkedin.com/in/kimberlykesler1" target="_blank"><i class="fa fa-linkedin" style="color: #8ac76f;"></i></a>
+            <a href="https://www.facebook.com/kimberly.kesler.artist" target="_blank"><i class="fa fa-facebook" style="color: #29aae1;"></i></a>
+        </div>
 
-    <script src="script.js"></script>
-    <script>
-        function formatAndSend() {
-        const recipient = "kimberly.kesler@outlook.com";
-        const name = document.getElementById('userName').value;
-        const subject = document.getElementById('userSubject').value;
-        const message = document.getElementById('userMessage').value;
+        <p>&copy; 2026 Kimberly Kesler</p>
+    </div>
 
-        // %0D%0A is the code for a "Line Break" in an email link
-        const formattedBody = "From: " + name + "%0D%0A" + 
-                                "----------------------------" + "%0D%0A%0D%0A" + 
-                                message;
+    <button onclick="scrollToTop()" id="backToTop">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+</footer>
 
-        const mailtoLink = "mailto:" + recipient + 
-                            "?subject=" + encodeURIComponent(subject) + 
-                            "&body=" + formattedBody;
+<script src="script.js"></script>
+<script>
+function formatAndSend() {
+    const recipient = "kimberly.kesler@outlook.com";
+    const name = document.getElementById('userName').value;
+    const subject = document.getElementById('userSubject').value;
+    const message = document.getElementById('userMessage').value;
 
-        window.location.href = mailtoLink;
-        }
-    </script>
+    const body =
+        "From: " + name + "%0D%0A" +
+        "----------------------------%0D%0A%0D%0A" +
+        message;
+
+    window.location.href =
+        "mailto:" + recipient +
+        "?subject=" + encodeURIComponent(subject) +
+        "&body=" + body;
+}
+</script>
+
 </body>
 </html>
