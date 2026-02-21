@@ -1,0 +1,213 @@
+/* --- ROOT VARIABLES & BASE STYLES --- */
+:root {
+    --rainbow: linear-gradient(to right, #29aae1, #8ac76f, #fbed21, #f16b4e, #ea088b);
+    --bg-black: #000;
+    --text-white: #fff;
+    --text-gray: #9e9e9e;
+    --transition: 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'aktiv-grotesk', sans-serif;
+    background: var(--bg-black);
+    color: var(--text-white);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --- NAVIGATION --- */
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+.gradient-border-bottom {
+    border-bottom: 1px solid transparent;
+    border-image: var(--rainbow) 1;
+}
+
+.logo { height: 50px; width: auto; }
+
+.nav-links { display: flex; gap: 15px; }
+
+.nav-links a {
+    color: var(--text-gray);
+    text-decoration: none;
+    padding: 10px 5px; /* Reduced side padding, added some bottom space */
+    margin: 0 10px;
+    font-weight: bold;
+    transition: var(--transition);
+    position: relative; /* Needed for the line positioning */
+    border-bottom: 2px solid transparent; /* Placeholder for the line */
+}
+
+.nav-links a:hover { 
+    color: var(--text-white); 
+}
+
+/* Updated: Only the gradient line, no background box */
+.nav-links a.active {
+    color: var(--text-white);
+    background: none; /* Removes the full button color */
+    border-image: var(--rainbow) 1; /* Adds the rainbow line to the bottom border */
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--text-white);
+}
+
+/* --- HEADERS --- */
+.case-header {
+    text-align: center;
+    padding: 120px 8% 60px;
+}
+
+h1 { font-size: clamp(2.5rem, 6vw, 4.5rem); margin-bottom: 20px; }
+
+.case-intro {
+    font-size: 1.1rem;
+    color: var(--text-gray);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* --- STANDARD 50/50 SECTIONS --- */
+.case-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 80px;
+    max-width: 1300px;
+    margin: auto;
+    padding: 80px 8%;
+}
+
+.text h2 { font-size: 2.2rem; margin-bottom: 25px; }
+.text p { color: var(--text-gray); margin-bottom: 20px; }
+
+.image-container img {
+    width: 100%;
+    border-radius: 16px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.case-section.reverse .image-container { grid-column: 1; }
+.case-section.reverse .text { grid-column: 2; }
+
+/* --- VISUAL STRATEGY --- */
+#visualstrategy {
+    max-width: 1300px;
+    margin: auto;
+    padding: 80px 8%;
+}
+
+#visualstrategy img {
+    width: 100%;
+    border-radius: 20px;
+    margin-top: 40px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+}
+
+/* --- FINAL EXECUTION (IMPACT LAYOUT) --- */
+.final-execution-impact {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 80px 8%;
+}
+
+.final-execution-impact .intro-text {
+    text-align: left; 
+    margin-bottom: 60px;
+}
+
+.final-execution-impact h2 { font-size: 2.2rem; margin-bottom: 25px; }
+
+.showcase-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 80px; 
+}
+
+.showcase-item { width: 100%; text-align: center; }
+
+.showcase-item h3 {
+    font-size: 1rem;
+    color: var(--text-gray);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.showcase-item img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    border: 1px solid #222;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.9);
+}
+
+/* --- CLEAN FOOTER STYLING --- */
+/* FOOTER */
+.site-footer {
+    background: #000;
+    padding: 80px 20px 40px;
+    text-align: center;
+}
+
+.gradient-border-top {
+    border-top: 2px solid transparent;
+    border-image: var(--rainbow) 1;
+}
+
+.footer-container { display: flex; flex-direction: column; gap: 25px; }
+.footer-links, .social-icons { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+.footer-links a, .social-icons a { color: white; text-decoration: none; font-size: 1.1rem; }
+
+#backToTop {
+    display: none;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #444;
+    color: white;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* --- MOBILE --- */
+@media (max-width: 900px) {
+    .menu-toggle { display: block; }
+    .nav-links {
+        position: fixed;
+        top: 70px;
+        right: -100%;
+        background: #000;
+        width: 250px;
+        height: 100vh;
+        flex-direction: column;
+        padding: 40px;
+        transition: 0.4s;
+    }
+    .nav-links.show { right: 0; }
+    .case-section, .case-section.reverse { grid-template-columns: 1fr; text-align: center; }
+    .footer-links { flex-direction: column; gap: 15px; }
+}
