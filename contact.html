@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - Kimberly Kesler</title>
+    <link rel="stylesheet" href="contact.css">
+    <link rel="stylesheet" href="https://use.typekit.net/wsq7zri.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="shortcut icon" href="Logo/logo black revised.jpg" type="image/x-icon">
+</head>
+<body>
+
+<nav class="navbar gradient-border-bottom">
+    <img src="Logo/kesler logo v2.png" class="logo" alt="Logo">
+    <div class="menu-toggle" id="mobileToggle">
+        <i class="fa fa-bars"></i>
+    </div>
+    <div class="nav-links" id="navLinks">
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="portfolio.html">Portfolio</a>
+        <a href="contact.html" class="active">Contact</a>
+    </div>
+</nav>
+
+<section class="section section-soft">
+    <div class="forms">
+        <h1 class="contact-title">Let’s Work Together</h1>
+        <p class="contact-subtitle">
+            Have a project, idea, or collaboration in mind? I’d love to hear from you. <br><br>
+            <a href="mailto:kimberly.kesler@outlook.com">Email: kimberly.kesler@outlook.com</a> &nbsp; | &nbsp;<a href="tel:+(123) 456 - 7890">Phone: (123) 456 - 7890</a> 
+        </p>
+
+        <form id="contactForm" onsubmit="formatAndSend(event)">
+            <label for="userName">Name</label>
+            <input type="text" id="userName" placeholder="Your Name" required>
+
+            <label for="userSubject">Subject</label>
+            <input type="text" id="userSubject" placeholder="How can I help?" required>
+
+            <label for="userMessage">Message</label>
+            <textarea id="userMessage" rows="5" placeholder="Write your message here..." required></textarea>
+
+            <button type="submit">Compose Email</button>
+        </form>
+    </div>
+</section>
+
+<footer class="site-footer gradient-border-top">
+    <div class="footer-container">
+        <div class="footer-links">
+            <a href="index.html">Home</a>
+            <a href="about.html">About</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </div>
+
+        <div class="social-icons">
+            <a href="https://www.instagram.com/kimberly.blanchard1/" target="_blank"><i class="fa fa-instagram" style="color: #ea088b;"></i></a>
+            <a href="https://www.behance.net/kimberlblancha" target="_blank"><i class="fa fa-behance" style="color: #f16b4e;"></i></a>
+            <a href="https://www.linkedin.com/in/kimberlykesler1" target="_blank"><i class="fa fa-linkedin" style="color: #8ac76f;"></i></a>
+            <a href="https://www.facebook.com/kimberly.kesler.artist" target="_blank"><i class="fa fa-facebook" style="color: #29aae1;"></i></a>
+        </div>
+
+        <p>&copy; 2026 Kimberly Kesler</p>
+    </div>
+
+    <button onclick="scrollToTop()" id="backToTop">
+        <i class="fa fa-chevron-up"></i>
+    </button>
+</footer>
+
+<script>
+function formatAndSend(event) {
+    event.preventDefault();
+    const recipient = "kimberly.kesler@outlook.com";
+    const name = document.getElementById('userName').value;
+    const subject = document.getElementById('userSubject').value;
+    const message = document.getElementById('userMessage').value;
+
+    const body = "From: " + name + "%0D%0A" + "----------------------------%0D%0A%0D%0A" + message;
+
+    window.location.href = "mailto:" + recipient + "?subject=" + encodeURIComponent(subject) + "&body=" + body;
+}
+
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+
+mobileToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('show');
+});
+
+function scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+</script>
+
+</body>
+</html>
